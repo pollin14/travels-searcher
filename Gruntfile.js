@@ -1,3 +1,5 @@
+/* jshint node: true */
+
 // Generated on 2015-11-20 using generator-angular 0.14.0
 'use strict';
 
@@ -208,23 +210,23 @@ module.exports = function (grunt) {
         devDependencies: true,
         src: '<%= karma.unit.configFile %>',
         ignorePath:  /\.\.\//,
-        fileTypes:{
+        fileTypes: {
           js: {
             block: /(([\s\t]*)\/{2}\s*?bower:\s*?(\S*))(\n|\r|.)*?(\/{2}\s*endbower)/gi,
-              detect: {
-                js: /'(.*\.js)'/gi
-              },
-              replace: {
-                js: '\'{{filePath}}\','
-              }
+            detect: {
+              js: /'(.*\.js)'/gi
+            },
+            replace: {
+              js: '\'{{filePath}}\','
             }
           }
+        }
       },
       sass: {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
-    }, 
+    },
 
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
@@ -458,7 +460,6 @@ module.exports = function (grunt) {
       }
     }
   });
-
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
