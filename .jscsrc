@@ -1,6 +1,12 @@
 {
+  "preset": "grunt",
+
   "requireCamelCaseOrUpperCaseIdentifiers": true,
   "requireCapitalizedConstructors": true,
   "requireParenthesesAroundIIFE": true,
-  "validateQuoteMarks": "'"
+  "validateQuoteMarks": "'",
+  "disallowSpacesInAnonymousFunctionExpression": false,
+  "disallowSpacesInFunctionExpression": false,
+
+  "excludeFiles": []
 }
