@@ -1,0 +1,23 @@
+{
+  "name": "travels-searcher",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Victor Aguilar <victor.aguilar@clickbus.com.mx>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-ui": "jqueryui#1.11.4",
+    "core.js": "1.2.x",
+    "bootstrap": "3.x"
+  }
+}
