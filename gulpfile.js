@@ -20,7 +20,7 @@ gulp.task('build-dev', function () {
         .pipe(concat(pack.name + '.js'))
         .pipe(wrap(wrappingFunction))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('public'));
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('build-dist', function () {
@@ -35,7 +35,7 @@ gulp.task('build-dist', function () {
 });
 
 gulp.task('serve-dev', ['watch'], function () {
-    gulp.src(['build', 'public'])
+    gulp.src(['./', 'demo'])
         .pipe(webserver({
             livereload: true,
             open: true
