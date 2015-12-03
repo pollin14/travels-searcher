@@ -7,25 +7,35 @@
 <body>
 
     <div class="travel-searcher">
-        <div class="origin">
-            <label for="origin">Origin</label>
-            <input class="origin" type="text" name="origin" id="origin">
-        </div>
-        <div class="destination">
-            <label for="destination">Destination</label>
-            <input class="destination" type="text" name="destination" id="destination">
-        </div>
+        <form action="/trips" method="post" class="dummy-travel-searcher-form">
+            <div class="origin">
+                <label for="origin">Origin</label>
+                <input class="origin" type="text" name="origin" id="origin">
+            </div>
+            <div class="destination">
+                <label for="destination">Destination</label>
+                <input class="destination" type="text" name="destination" id="destination">
+            </div>
+
+            <button>
+                Search Travels
+            </button>
+        </form>
     </div>
 
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/core.js/client/shim.min.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/jquery-ui/ui/minified/core.min.js"></script>
     <script src="/bower_components/jquery-ui/ui/minified/datepicker.min.js"></script>
     <script src="/bower_components/jquery-ui/ui/minified/widget.min.js"></script>
     <script src="/bower_components/jquery-ui/ui/minified/position.min.js"></script>
     <script src="/bower_components/jquery-ui/ui/minified/menu.min.js"></script>
     <script src="/bower_components/jquery-ui/ui/minified/autocomplete.min.js"></script>
-    <script src="/scripts/typeAheadByCategories.js"></script>
-    <script src="/scripts/main.js"></script>
+    <script src="/travels-searcher.js"></script>
+    <!--<script src="/scripts/Repositories/PlacesRepository.js"></script>-->
+    <!--<script src="/scripts/Repositories/RoutesRepository.js"></script>-->
+    <!--<script src="/scripts/Types/TravelSearcherForm.js"></script>-->
+    <!--<script src="/scripts/widgets/typeAheadByCategories.js"></script>-->
+    <script src="/main.js"></script>
 </body>
 </html>
