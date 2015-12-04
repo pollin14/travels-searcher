@@ -16,6 +16,12 @@ PlacesRepository.prototype.findAll = function (enabledPagination) {
 
     return [
         {
+            value: 'Zzza',
+            slug: 'terminal-z',
+            priority: 0,
+            category: 'terminal'
+        },
+        {
             value: 'Terminal del Norte',
             slug: 'terminal-del-norte',
             priority: 0,

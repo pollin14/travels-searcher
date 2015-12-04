@@ -17,8 +17,10 @@
             $.each(itemsByCategory, function (categoryValue, items) {
                 var category = that.findCategoryByValue(categoryValue);
 
+                var sortedItems = that.options.sort(items);
+
                 ul.append('<li class="ui-autocomplete-category">' + category.label + '</li>' );
-                that.addItems(ul, items, category);
+                that.addItems(ul, sortedItems, category);
             });
         },
         addItems: function (ul, items, category) {

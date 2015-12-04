@@ -1,11 +1,13 @@
-/* globals $ */
-'use strict';
+(function ($) {
+    'use strict';
 
-/**************************************************************************
- * Widget Definition
- *************************************************************************/
+    var identity = function (collection) {return collection;};
 
-$.widget('clickbus.travelsSearcher', $.Widget, {
+    /**************************************************************************
+     * Widget Definition
+     *************************************************************************/
+
+    $.widget('clickbus.travelsSearcher', $.Widget, {
         _create: function () {
             var travelSearcherForm  = new TravelSearcherForm();
             var routesRepository    = new RoutesRepository();
@@ -16,9 +18,13 @@ $.widget('clickbus.travelsSearcher', $.Widget, {
             var $destination        = $(this.options.destination);
             var $widgetForm         = $(this);
 
-            $origin.typeAheadByCategories({
-                source: placesRepository.findAll(false),
+            var autocompleteOptions = {
                 categories: categories,
+                sort: this.options.sort
+            };
+
+            var originAutocompleteOptions = $.extend({}, autocompleteOptions, {
+                source: placesRepository.findAll(false),
                 select: function (event, ui) {
                     var destinations = routesRepository.findByOrigin(ui.item.slug);
 
@@ -27,28 +33,31 @@ $.widget('clickbus.travelsSearcher', $.Widget, {
                 }
             });
 
-            $destination.typeAheadByCategories({
+            var destinationAutocompleteOptions = $.extend({}, autocompleteOptions, {
                 source: placesRepository.findAll(false),
-                categories: categories,
                 select: function (event, ui) {
                     travelSearcherForm.add('destination', ui.item.slug);
                 }
             });
+
+            $origin.typeAheadByCategories(originAutocompleteOptions);
+            $destination.typeAheadByCategories(destinationAutocompleteOptions);
 
             $widgetForm.on('submit', function (event) {
                 event.preventDefault();
                 travelSearcherForm.submit();
             });
         }
-    }
-);
+    });
 
-/**************************************************************************
- * Widget Options by Default
- *************************************************************************/
+    /**************************************************************************
+     * Widget Options by Default
+     *************************************************************************/
 
-$.clickbus.travelsSearcher.prototype.options = {
-    origin: '.origin',
-    destination: '.destination',
-    categories: []
-};
+    $.clickbus.travelsSearcher.prototype.options = {
+        origin: '.origin',
+        destination: '.destination',
+        categories: [],
+        sort: identity
+    };
+})(jQuery);
