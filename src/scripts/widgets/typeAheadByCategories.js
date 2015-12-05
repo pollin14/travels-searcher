@@ -1,6 +1,11 @@
 (function ($) {
     'use strict';
 
+    var defaultTranslations = {
+        cities: 'Cities (All the terminals)',
+        terminals: 'Terminals'
+    };
+
     /**************************************************************************
      * Widget Definition
      *************************************************************************/
@@ -9,58 +14,60 @@
         _create: function () {
             this._super();
             this.widget().menu( 'option', 'items', '> :not(.ui-autocomplete-category)' );
+
+            if (typeof typeAheadByCategoriesTranslations === 'undefined') {
+                this.translations = defaultTranslations;
+            } else {
+                this.translations = typeAheadByCategoriesTranslations;
+            }
         },
         _renderMenu: function (ul, items) {
             var that            = this;
-            var itemsByCategory = groupByCategory(items);
+            var sortedItems     = that.options.sort(items);
 
-            $.each(itemsByCategory, function (categoryValue, items) {
-                var category = that.findCategoryByValue(categoryValue);
-
-                var sortedItems = that.options.sort(items);
-
-                ul.append('<li class="ui-autocomplete-category">' + category.label + '</li>' );
-                that.addItems(ul, sortedItems, category);
-            });
+            this.renderCities(ul, sortedItems);
+            this.renderTerminals(ul, sortedItems);
         },
-        addItems: function (ul, items, category) {
+        _renderItem: function (ul, item) {
+            return $('<li>')
+                .append(item.label)
+                .appendTo(ul);
+        },
+        renderCities: function (ul, items) {
             var that = this;
 
+            this.renderHeader(ul, this.translations.cities);
+
             $.each(items, function (index, item) {
-                var li = that._renderItemData(ul, item);
-                li.attr('aria-label', category.value + item.value);
+                that._renderItemData(ul, {
+                    value: item.name,
+                    label: item.city + '<span class="state">' + item.state + '</span>'
+                });
             });
         },
-        findCategoryByValue: function (value) {
+        renderTerminals: function (ul, items) {
+            var that = this;
 
-            var categories = this.option('categories');
+            this.renderHeader(ul, this.translations.terminals);
 
-            for (var i = 0; i < categories.length; i++) {
-                if (categories[i].value === value) {
-                    return categories[i];
-                }
-            }
+            $.each(items, function (index, item) {
+                var label =
+                    item.terminal +
+                    '<span class="city">' + item.city + '</span>' +
+                    ' <span class="state">' + item.state + '</span>';
 
-            return null;
+                that._renderItemData(ul, {
+                    value: item.name,
+                    label: label
+                });
+            });
+        },
+        renderHeader: function (ul, label) {
+            $('<li>')
+                .addClass('ui-autocomplete-category')
+                .append(label)
+                .appendTo(ul);
         }
     });
 
-    /**************************************************************************
-     * Private functions
-     *************************************************************************/
-
-    var groupByCategory =function (items) {
-
-        var byCategory = {};
-
-        $.each(items, function (index, item) {
-            if (typeof byCategory[item.category] === 'undefined') {
-                byCategory[item.category] = [];
-            }
-
-            byCategory[item.category].push(item);
-        });
-
-        return byCategory;
-    };
 })(jQuery);

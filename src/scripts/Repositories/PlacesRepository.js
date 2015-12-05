@@ -9,6 +9,17 @@ var PlacesRepository = function () {
 
 /**
  * @param {bool} enabledPagination (optional, default:true)
+ * @return a collection of object with the next properties.
+ * <code>
+ *     {
+ *          name: "The place name"
+ *          value: "This field was use to do the search",
+ *          slug: "slug of the place",
+ *          priority: "Integer Positive. More big more priority"
+ *          city: "City name"
+ *          terminal: "Terminal name"
+ *     }
+ * </code>
  */
 PlacesRepository.prototype.findAll = function (enabledPagination) {
 
@@ -16,34 +27,13 @@ PlacesRepository.prototype.findAll = function (enabledPagination) {
 
     return [
         {
-            value: 'Zzza',
-            slug: 'terminal-z',
+            name: 'Ciudad de México',
+            value: 'Ciudad de México seachable',
+            slug: 'ciudad-de-mexico-todas-las-terminales',
             priority: 0,
-            category: 'terminal'
-        },
-        {
-            value: 'Terminal del Norte',
-            slug: 'terminal-del-norte',
-            priority: 0,
-            category: 'terminal'
-        },
-        {
-            value: 'Terminal Querétaro',
-            slug: 'terminal-queretaro',
-            priority: 0,
-            category: 'terminal'
-        },
-        {
-            value: 'Ciudad de México',
-            slug: 'ciudad-de-mexico',
-            priority: 1,
-            category: 'city'
-        },
-        {
-            value: 'Monterrey',
-            slug: 'monterrey',
-            priority: 0,
-            category: 'city'
+            city: 'México',
+            terminal: 'Todas las terminales',
+            state: 'DF'
         }
     ];
 };

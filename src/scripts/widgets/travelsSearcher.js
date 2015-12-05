@@ -1,25 +1,29 @@
 (function ($) {
     'use strict';
 
-    var identity = function (collection) {return collection;};
+    var identity        = function (collection) {return collection;};
+    var defaultOptions  = {
+        origin: '.origin',
+        destination: '.destination',
+        sort: identity
+    };
 
     /**************************************************************************
      * Widget Definition
      *************************************************************************/
 
     $.widget('clickbus.travelsSearcher', $.Widget, {
+        options: defaultOptions,
         _create: function () {
             var travelSearcherForm  = new TravelSearcherForm();
             var routesRepository    = new RoutesRepository();
             var placesRepository    = new PlacesRepository();
-            var categories          = this.options.categories;
 
             var $origin             = $(this.options.origin);
             var $destination        = $(this.options.destination);
             var $widgetForm         = $(this);
 
             var autocompleteOptions = {
-                categories: categories,
                 sort: this.options.sort
             };
 
@@ -49,15 +53,4 @@
             });
         }
     });
-
-    /**************************************************************************
-     * Widget Options by Default
-     *************************************************************************/
-
-    $.clickbus.travelsSearcher.prototype.options = {
-        origin: '.origin',
-        destination: '.destination',
-        categories: [],
-        sort: identity
-    };
 })(jQuery);

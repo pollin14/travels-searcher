@@ -12,16 +12,13 @@ RoutesRepository.prototype.findByOrigin = function (origin) {
 
     return [
         {
-            value: 'Terminal de Regreso',
-            slug: 'terminal-de-regreso',
+            name: 'Name return Return',
+            value: 'Ciudad value Return seachable',
+            slug: 'ciudad-de-mexico-return',
             priority: 0,
-            category: 'terminal'
-        },
-        {
-            value: 'Ciudad de Regreso',
-            slug: 'ciudad-de-regreso',
-            priority: 1,
-            category: 'city'
+            city: 'México Return',
+            terminal: 'Todas las return ',
+            state: 'DX'
         }
     ];
 };
