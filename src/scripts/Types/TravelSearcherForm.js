@@ -1,36 +1,108 @@
 'use strict';
 
-/**
- *
- * @param {string} url
- * @param {string} method GET or POST (case insensitive)
- * @constructor
- */
-var TravelSearcherForm = function (url, method) {
+(function () {
 
-    url     = typeof url === 'undefined'? '/': url;
-    method  = typeof method === 'undefined'? 'GET': method;
+    var validations = {
+        origin: {
+            required: {
+                message: 'The origin is required',
+                isValid: function (value) {
+                    return typeof value !== 'undefined' && value !== null && value !== '';
+                }
+            }
+        }
+    };
 
-    this.form = document.createElement('form');
-    this.form.setAttribute('name', 'travelSearcherForm');
-    this.form.setAttribute('method', method);
-    this.form.setAttribute('action', url);
-};
+    var data = {
+        origin: '',
+        destination: '',
+        departureDate: '',
+        returnDate: ''
+    };
 
-TravelSearcherForm.prototype.add = function (name, value) {
+    var serialize = function (data) {
 
-    var input = document.createElement('input');
-    input.setAttribute('type', 'hidden');
-    input.setAttribute('name', name);
-    input.setAttribute('value', value);
+        var query = '';
+        for (var property in data) {
+            if (data.hasOwnProperty(property)) {
+                query += property + '=' + data[property] + '&';
+            }
+        }
 
-    this.form.appendChild(input);
-};
+        return query.substr(0, query.length -1);
+    };
 
-TravelSearcherForm.prototype.submit = function () {
-    document
-        .getElementsByTagName('body')[0]
-        .appendChild(this.form);
+    /**
+     *
+     * @param {string} url
+     * @constructor
+     */
+    var TravelSearcherForm = function (url) {
 
-    document.forms[this.form.getAttribute('name')].submit();
-};
+        this.url = typeof url === 'undefined'? '/': url;
+
+        this.violations = {
+            origin: [],
+            destination: []
+        };
+    };
+
+    TravelSearcherForm.prototype.setOrigin = function (value) {
+        data.origin         = value;
+        data.destination    = '';
+    };
+
+    TravelSearcherForm.prototype.setDestination = function (value) {
+        data.destination = value;
+    };
+
+    TravelSearcherForm.prototype.submit = function () {
+
+        var baseUrl = this.url + data.origin + '/' + data.destination;
+
+        var query = {
+            isGroup: 0,
+            departureDate: data.departureDate
+        };
+
+        if (data.returnDate !== '') {
+            query.returnDate = data.returnDate;
+        }
+
+        window.location =  baseUrl + '?' + serialize(query);
+    };
+
+    TravelSearcherForm.prototype.isValid = function () {
+
+        var valid = true;
+
+        for (var validation in validations) {
+            if (validations.hasOwnProperty(validation)) {
+                valid = valid && this.isFieldValid(validation, data[validation]);
+            }
+        }
+
+        return valid;
+    };
+
+    TravelSearcherForm.prototype.isFieldValid = function (field, value) {
+
+        var valid = true;
+        for (var ruleName in validations[field]) {
+            if (validations[field].hasOwnProperty(ruleName)) {
+                var rule        = validations[field][ruleName];
+                var validField  = rule.isValid(value);
+
+                if (!validField) {
+                    this.violations[field].push(rule.message);
+                }
+
+                valid = valid && validField;
+            }
+        }
+
+        return valid;
+    };
+
+    window.TravelSearcherForm = TravelSearcherForm;
+})();
