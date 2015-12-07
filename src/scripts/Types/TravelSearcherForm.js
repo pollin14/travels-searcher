@@ -1,11 +1,29 @@
+/* globals validationsTranslations */
+
 'use strict';
 
-(function () {
+(function ($) {
 
     var validations = {
         origin: {
             required: {
                 message: 'The origin is required',
+                isValid: function (value) {
+                    return typeof value !== 'undefined' && value !== null && value !== '';
+                }
+            }
+        },
+        destination: {
+            required: {
+                message: 'The destination is required',
+                isValid: function (value) {
+                    return typeof value !== 'undefined' && value !== null && value !== '';
+                }
+            }
+        },
+        departureDate: {
+            required: {
+                message: 'The departure date is required',
                 isValid: function (value) {
                     return typeof value !== 'undefined' && value !== null && value !== '';
                 }
@@ -19,6 +37,10 @@
         departureDate: '',
         returnDate: ''
     };
+
+    if (typeof validationsTranslations !== 'undefined') {
+        $.extend(true, validations, validationsTranslations);
+    }
 
     var serialize = function (data) {
         // We need to change the name of the properties by compatibility.
@@ -61,7 +83,8 @@
 
         this.violations = {
             origin: [],
-            destination: []
+            destination: [],
+            departureDate: []
         };
     };
 
@@ -106,7 +129,7 @@
 
         for (var validation in validations) {
             if (validations.hasOwnProperty(validation)) {
-                valid = valid && this.isFieldValid(validation, data[validation]);
+                valid = this.isFieldValid(validation, data[validation]) && valid;
             }
         }
 
@@ -133,4 +156,4 @@
     };
 
     window.TravelSearcherForm = TravelSearcherForm;
-})();
+})(jQuery);
