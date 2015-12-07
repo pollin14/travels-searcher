@@ -41,7 +41,8 @@
             $.each(items, function (index, item) {
                 that._renderItemData(ul, {
                     value: item.name,
-                    label: item.city + '<span class="state">' + item.state + '</span>'
+                    label: item.city + '<span class="state">' + item.state + '</span>',
+                    slug: item.slug
                 });
             });
         },
@@ -58,7 +59,8 @@
 
                 that._renderItemData(ul, {
                     value: item.name,
-                    label: label
+                    label: label,
+                    slug: item.slug
                 });
             });
         },
