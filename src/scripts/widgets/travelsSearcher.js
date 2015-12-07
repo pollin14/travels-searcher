@@ -2,14 +2,24 @@
     'use strict';
 
     var identity        = function (collection) {return collection;};
+    var today           = new Date;
     var defaultOptions  = {
         origin: 'input.origin',
         destination: 'input.destination',
+        departureDate: 'input.departure-date',
+        returnDate: 'input.return-date',
+        datepicker: {
+            dateFormat: 'dd/mm/yy', //Only format supported,
+            numberOfMonths: 2
+        },
+        internalDateFormat: 'yy-mm-dd', //Only format supported
         sort: identity
     };
     var controls = {
         $origin: null,
-        $destination: null
+        $destination: null,
+        $departureDate: null,
+        $returnDate: null
     };
     var travelSearcherForm = null;
 
@@ -29,6 +39,8 @@
 
             controls.$origin             = $(this.options.origin);
             controls.$destination        = $(this.options.destination);
+            controls.$departureDate      = $(this.options.departureDate);
+            controls.$returnDate         = $(this.options.returnDate);
 
             var autocompleteOptions = {
                 sort: this.options.sort
@@ -53,6 +65,21 @@
                 }
             });
 
+            var departureDatePickerOptions = $.extend({}, this.options.datepicker, {
+                minDate: today,
+                onSelect: function (date) {
+                    travelSearcherForm.setDepartureDate(date);
+                    controls.$returnDate.datepicker('option', 'minDate', date);
+                }
+            });
+
+            var returnDatePickerOptions = $.extend({}, this.options.datepicker, {
+                onSelect: function (date) {
+                    travelSearcherForm.setReturnDate(date);
+                    controls.$departureDate.datepicker('option', 'maxDate', date);
+                }
+            });
+
 
             controls.$origin
                 .typeAheadByCategories(originAutocompleteOptions)
@@ -60,6 +87,11 @@
             controls.$destination
                 .typeAheadByCategories(destinationAutocompleteOptions)
                 .tooltip();
+            controls.$departureDate
+                .datepicker(departureDatePickerOptions)
+                .tooltip();
+            controls.$returnDate
+                .datepicker(returnDatePickerOptions);
 
             $widgetForm.on('submit', this.submitHandler);
         },

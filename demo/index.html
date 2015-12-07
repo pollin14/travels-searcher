@@ -7,16 +7,21 @@
 <body>
 
     <div class="travel-searcher">
-        <form action="/trips" method="post" class="dummy-travel-searcher-form">
-            <div class="origin">
+        <form action="/" method="post" class="dummy-travel-searcher-form">
+            <div class="origin-wrapper">
                 <label for="origin">Origin</label>
-                <input class="origin" type="text" name="origin" id="origin" title="missing">
+                <input class="origin" type="text" name="origin" id="origin">
             </div>
-            <div class="destination">
+            <div class="destination-wrapper">
                 <label for="destination">Destination</label>
-                <input class="destination" type="text" name="destination" id="destination" title="missing">
+                <input class="destination" type="text" name="destination" id="destination">
             </div>
-
+            <div class="departure-date-wrapper">
+                <input class="departure-date" type="text" name="departure-date">
+            </div>
+            <div class="return-date-wrapper">
+                <input type="text" name="return-date" class="return-date">
+            </div>
             <button>
                 Search Travels
             </button>
@@ -27,6 +32,7 @@
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/jquery-ui/ui/minified/core.min.js"></script>
     <script src="/bower_components/jquery-ui/ui/minified/datepicker.min.js"></script>
+    <script src="/bower_components/jquery-ui/ui/i18n/datepicker-es.js"></script>
     <script src="/bower_components/jquery-ui/ui/minified/widget.min.js"></script>
     <script src="/bower_components/jquery-ui/ui/minified/position.min.js"></script>
     <script src="/bower_components/jquery-ui/ui/minified/menu.min.js"></script>

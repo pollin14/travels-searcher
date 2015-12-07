@@ -21,6 +21,15 @@
     };
 
     var serialize = function (data) {
+        // We need to change the name of the properties by compatibility.
+
+        data.ida = data.departureDate;
+        delete data.departureDate;
+
+        if (typeof data.returnDate !== 'undefined') {
+            data.volta = data.returnDate;
+            delete data.returnDate;
+        }
 
         var query = '';
         for (var property in data) {
@@ -30,6 +39,15 @@
         }
 
         return query.substr(0, query.length -1);
+    };
+
+    /**
+     * The function assume that the date format given is dd/mm/yy (view jqueryui datepicker formats)
+     * @param date
+     * @return {string} date in format YYYY/MM/DD,
+     */
+    var parseDate = function (date) {
+        return date.split('/').reverse().join('-');
     };
 
     /**
@@ -54,6 +72,16 @@
 
     TravelSearcherForm.prototype.setDestination = function (value) {
         data.destination = value;
+    };
+
+    TravelSearcherForm.prototype.setDepartureDate = function (value) {
+
+        data.departureDate = parseDate(value);
+    };
+
+    TravelSearcherForm.prototype.setReturnDate = function (value) {
+
+        data.returnDate = parseDate(value);
     };
 
     TravelSearcherForm.prototype.submit = function () {
