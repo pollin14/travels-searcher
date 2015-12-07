@@ -2,7 +2,7 @@
     'use strict';
 
     var identity        = function (collection) {return collection;};
-    var today           = new Date;
+    var today           = new Date();
     var defaultOptions  = {
         origin: 'input.origin',
         destination: 'input.destination',
