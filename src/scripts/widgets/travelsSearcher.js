@@ -12,6 +12,17 @@
             dateFormat: 'dd/mm/yy', //Only format supported,
             numberOfMonths: 2
         },
+        tooltips: {
+            origin: {
+                textualPosition: 'right'
+            },
+            destination: {
+                textualPosition: 'right'
+            },
+            departureDate: {
+                textualPosition: 'bottom'
+            }
+        },
         internalDateFormat: 'yy-mm-dd', //Only format supported
         sort: identity
     };
@@ -83,13 +94,13 @@
 
             controls.$origin
                 .typeAheadByCategories(originAutocompleteOptions)
-                .tooltip();
+                .tooltip(this.options.tooltips.origin);
             controls.$destination
                 .typeAheadByCategories(destinationAutocompleteOptions)
-                .tooltip();
+                .tooltip(this.options.tooltips.destination);
             controls.$departureDate
                 .datepicker(departureDatePickerOptions)
-                .tooltip();
+                .tooltip(this.options.tooltips.departureDate);
             controls.$returnDate
                 .datepicker(returnDatePickerOptions);
 
