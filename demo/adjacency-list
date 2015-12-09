@@ -1,0 +1,938 @@
+[
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 5003
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5004
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5005
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5006
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5007
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5008
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5009
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5012
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5013
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5014
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5015
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5018
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5019
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5020
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5021
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5022
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5023
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5024
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5029
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5030
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5032
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5035
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5036
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5037
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5039
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5040
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5041
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5042
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5043
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5044
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5045
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5046
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 5047
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5049
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5050
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5051
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5053
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5054
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5055
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5057
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5058
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5059
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5060
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5062
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5064
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5066
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5068
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5070
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5071
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5072
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5073
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5075
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5076
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5077
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5078
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5079
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5081
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5082
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5083
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5086
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5087
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5088
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5089
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5090
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5091
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5093
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5094
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5095
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5096
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5097
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5098
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 5099
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5102
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5103
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5104
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5106
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5107
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5108
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5109
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5111
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 5112
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 14671
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 14672
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 14679
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 14680
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 14682
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 14757
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 14764
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 14774
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 14791
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 14794
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 14812
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 14817
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 14819
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 14820
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 14823
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15012
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15104
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15138
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15158
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15160
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15201
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15202
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15217
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15252
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15255
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15262
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15278
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15281
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15282
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15284
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15285
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15286
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15288
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15289
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15290
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15297
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15298
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15315
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15316
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15319
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 15349
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15352
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15383
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15384
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15385
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15404
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15425
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15431
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15432
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15468
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15475
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15525
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15526
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15527
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15528
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15529
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15530
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15531
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15532
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15533
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15535
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15537
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15538
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15539
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15540
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15541
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15542
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15608
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15672
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15746
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 15766
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 15770
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 15772
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15773
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15793
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15798
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15799
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15813
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15817
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15836
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15841
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15897
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 15899
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 15901
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 15904
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15922
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15934
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15935
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15941
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15954
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 15958
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 15963
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 15969
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16002
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 16012
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 16018
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16032
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 16047
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 16048
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16074
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16075
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 16082
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 16089
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 16174
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 16179
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16182
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 16211
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 16215
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16223
+  },
+  {
+    "departure_slug": "ciudad-de-mexico-df-(todas-las-terminales)",
+    "arrival": 16227
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16252
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16253
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16254
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16255
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16256
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16257
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16258
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16259
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16260
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16262
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16264
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16265
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16266
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16267
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16268
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16269
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16270
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16271
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16272
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16273
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16320
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16321
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16322
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16323
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15500
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15501
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 15502
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16247
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16303
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16310
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16311
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16312
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16314
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16352
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16353
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16359
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16360
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16361
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16364
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16369
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16370
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16372
+  },
+  {
+    "departure_slug": "central-del-norte-ciudad-de-mexico-df",
+    "arrival": 16376
+  }
+]
