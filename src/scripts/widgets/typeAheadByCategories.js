@@ -39,11 +39,11 @@
             this.renderHeader(ul, this.translations.cities);
 
             $.each(items, function (index, item) {
-                that._renderItemData(ul, {
-                    value: item.name,
+                var itemData = $.extend({}, item, {
                     label: item.city + '&nbsp;<span class="state">' + item.state + '</span>',
-                    slug: item.slug
                 });
+
+                that._renderItemData(ul, itemData);
             });
         },
         renderTerminals: function (ul, items) {
@@ -56,12 +56,11 @@
                     item.terminal +
                     '&nbsp;<span class="city">' + item.city + '</span>' +
                     '&nbsp;<span class="state">' + item.state + '</span>';
-
-                that._renderItemData(ul, {
-                    value: item.name,
-                    label: label,
-                    slug: item.slug
+                var itemData = $.extend({}, item, {
+                    label: label
                 });
+
+                that._renderItemData(ul, itemData);
             });
         },
         renderHeader: function (ul, label) {

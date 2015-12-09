@@ -35,7 +35,8 @@
         origin: '',
         destination: '',
         departureDate: '',
-        returnDate: ''
+        returnDate: '',
+        isGroup: false
     };
 
     if (typeof validationsTranslations !== 'undefined') {
@@ -89,12 +90,14 @@
     };
 
     TravelSearcherForm.prototype.setOrigin = function (value) {
-        data.origin         = value;
+        data.origin         = value.slug;
+        data.isGroup        = data.isGroup || value.isGroup;
         data.destination    = '';
     };
 
     TravelSearcherForm.prototype.setDestination = function (value) {
-        data.destination = value;
+        data.destination    = value.slug;
+        data.isGroup        = data.isGroup || value.isGroup;
     };
 
     TravelSearcherForm.prototype.setDepartureDate = function (value) {
@@ -112,7 +115,7 @@
         var baseUrl = this.url + data.origin + '/' + data.destination;
 
         var query = {
-            isGroup: 0,
+            isGroup: data.isGroup? 1: 0,
             departureDate: data.departureDate
         };
 

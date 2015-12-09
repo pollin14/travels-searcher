@@ -66,7 +66,7 @@
                     routesRepository
                         .findByOrigin(ui.item.slug)
                         .done(function (destinations) {
-                            travelSearcherForm.setOrigin(ui.item.slug);
+                            travelSearcherForm.setOrigin(ui.item);
                             controls.$destination.typeAheadByCategories('option', 'source', destinations);
                             controls.$origin.tooltip('close');
                         });
@@ -76,7 +76,7 @@
             var destinationAutocompleteOptions = $.extend({}, autocompleteOptions, {
                 source: placesRepository.findAll(false),
                 select: function (event, ui) {
-                    travelSearcherForm.setDestination(ui.item.slug);
+                    travelSearcherForm.setDestination(ui.item);
                     controls.$destination.tooltip('close');
                 }
             });
