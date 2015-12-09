@@ -24,7 +24,9 @@
             }
         },
         internalDateFormat: 'yy-mm-dd', //Only format supported
-        sort: identity
+        sort: identity,
+        placesUrl: '/places',
+        adjacencyListUrl: '/adjacency-list'
     };
     var controls = {
         $origin: null,
@@ -41,8 +43,8 @@
     $.widget('clickbus.travelsSearcher', $.Widget, {
         options: defaultOptions,
         _create: function () {
-            var routesRepository    = new RoutesRepository();
-            var placesRepository    = new PlacesRepository();
+            var placesRepository    = new PlacesRepository(this.options.placesUrl);
+            var routesRepository    = new RoutesRepository(placesRepository, this.options.adjacencyListUrl);
 
             var $widgetForm         = $(this.element);
 
@@ -60,11 +62,14 @@
             var originAutocompleteOptions = $.extend({}, autocompleteOptions, {
                 source: placesRepository.findAll(false),
                 select: function (event, ui) {
-                    var destinations = routesRepository.findByOrigin(ui.item.slug);
 
-                    travelSearcherForm.setOrigin(ui.item.slug);
-                    controls.$destination.typeAheadByCategories('option', 'source', destinations);
-                    controls.$origin.tooltip('close');
+                    routesRepository
+                        .findByOrigin(ui.item.slug)
+                        .done(function (destinations) {
+                            travelSearcherForm.setOrigin(ui.item.slug);
+                            controls.$destination.typeAheadByCategories('option', 'source', destinations);
+                            controls.$origin.tooltip('close');
+                        });
                 }
             });
 
@@ -90,7 +95,6 @@
                     controls.$departureDate.datepicker('option', 'maxDate', date);
                 }
             });
-
 
             controls.$origin
                 .typeAheadByCategories(originAutocompleteOptions)
