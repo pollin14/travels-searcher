@@ -41,7 +41,7 @@
             $.each(items, function (index, item) {
                 that._renderItemData(ul, {
                     value: item.name,
-                    label: item.city + '<span class="state">' + item.state + '</span>',
+                    label: item.city + '&nbsp;<span class="state">' + item.state + '</span>',
                     slug: item.slug
                 });
             });
@@ -54,8 +54,8 @@
             $.each(items, function (index, item) {
                 var label =
                     item.terminal +
-                    '<span class="city">' + item.city + '</span>' +
-                    ' <span class="state">' + item.state + '</span>';
+                    '&nbsp;<span class="city">' + item.city + '</span>' +
+                    '&nbsp;<span class="state">' + item.state + '</span>';
 
                 that._renderItemData(ul, {
                     value: item.name,
