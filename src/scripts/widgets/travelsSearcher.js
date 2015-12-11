@@ -26,7 +26,8 @@
         internalDateFormat: 'yy-mm-dd', //Only format supported
         sort: identity,
         placesUrl: '/places',
-        adjacencyListUrl: '/adjacency-list'
+        adjacencyListUrl: '/adjacency-list',
+        amountResults: 5
     };
     var controls = {
         $origin: null,
@@ -37,12 +38,13 @@
     var travelSearcherForm = null;
 
     /**************************************************************************
-     * Widget Definition
+     * travelsSearcher widget definition
      *************************************************************************/
 
     $.widget('clickbus.travelsSearcher', $.Widget, {
         options: defaultOptions,
         _create: function () {
+            var that                = this;
             var placesRepository    = new PlacesRepository(this.options.placesUrl);
             var routesRepository    = new RoutesRepository(placesRepository, this.options.adjacencyListUrl);
 
@@ -55,26 +57,39 @@
             controls.$departureDate      = $(this.options.departureDate);
             controls.$returnDate         = $(this.options.returnDate);
 
+            var matcher = function (places, request, response) {
+                var typeAhead       = $.clickbus.typeAheadByCategories;
+
+                var matchCities     = typeAhead.filter(places, request.term, 'city');
+                var matchTerminal   = typeAhead.filter(places, request.term, 'terminal');
+                var cities          = typeAhead.splice(matchCities, true, that.options.amountResults);
+                var terminals       = typeAhead.splice(matchTerminal, false, that.options.amountResults);
+                var matchPlaces     = cities.concat(terminals);
+
+                response(matchPlaces);
+            };
+
             var autocompleteOptions = {
-                sort: this.options.sort
+                source: function (request, response) {
+                    matcher(placesRepository.findAll(), request, response);
+                },
+                sort: this.options.sort,
+                resultsAmount: this.options.resultsAmount
             };
 
             var originAutocompleteOptions = $.extend({}, autocompleteOptions, {
-                source: placesRepository.findAll(false),
                 select: function (event, ui) {
-
-                    routesRepository
-                        .findByOrigin(ui.item.slug)
-                        .done(function (destinations) {
-                            travelSearcherForm.setOrigin(ui.item);
-                            controls.$destination.typeAheadByCategories('option', 'source', destinations);
-                            controls.$origin.tooltip('close');
+                    routesRepository.findByOrigin(ui.item.slug).done(function (destinations) {
+                        travelSearcherForm.setOrigin(ui.item);
+                        controls.$destination.typeAheadByCategories('option', 'source', function (request, response) {
+                            matcher(destinations, request, response);
                         });
+                        controls.$origin.tooltip('close');
+                    });
                 }
             });
 
             var destinationAutocompleteOptions = $.extend({}, autocompleteOptions, {
-                source: placesRepository.findAll(false),
                 select: function (event, ui) {
                     travelSearcherForm.setDestination(ui.item);
                     controls.$destination.tooltip('close');

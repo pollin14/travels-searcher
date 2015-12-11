@@ -5,12 +5,16 @@
         cities: 'Cities (All the terminals)',
         terminals: 'Terminals'
     };
+    var defaultOptions = {
+        resultsAmount: 5
+    };
 
     /**************************************************************************
-     * Widget Definition
+     * typeAheadByCategories widget definition
      *************************************************************************/
 
     $.widget('clickbus.typeAheadByCategories', $.ui.autocomplete, {
+        options: defaultOptions,
         _create: function () {
             this._super();
             this.widget().menu( 'option', 'items', '> :not(.ui-autocomplete-category)' );
@@ -24,9 +28,15 @@
         _renderMenu: function (ul, items) {
             var that            = this;
             var sortedItems     = that.options.sort(items);
+            var cities          = sortedItems.filter(function (item) {
+                return item.isCity;
+            });
+            var terminals       = sortedItems.filter(function (item) {
+                return !item.isCity;
+            });
 
-            this.renderCities(ul, sortedItems);
-            this.renderTerminals(ul, sortedItems);
+            this.renderCities(ul, cities);
+            this.renderTerminals(ul, terminals);
         },
         _renderItem: function (ul, item) {
             return $('<li>')
@@ -71,4 +81,26 @@
         }
     });
 
+    $.extend($.clickbus.typeAheadByCategories, {
+        filter: function(array, term, property) {
+            property = typeof property === 'undefined'? label: property;
+
+            var matcher = new RegExp($.ui.autocomplete.escapeRegex(term), "i");
+            return $.grep(array, function(value){
+                if (value[property] !== null) {
+                    return matcher.test(latinize(value[property]));
+                }
+
+                return matcher.test(value.value || value);
+            });
+        },
+        splice: function (matchPlaces, isCity, limit) {
+            var places      = matchPlaces.slice(0, limit);
+
+            return places.map(function (place) {
+                place.isCity = isCity;
+                return place;
+            });
+        }
+    });
 })(jQuery);
