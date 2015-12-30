@@ -23,7 +23,7 @@
                 textualPosition: 'bottom'
             }
         },
-        internalDateFormat: 'yy-mm-dd', //Only format supported
+        internalDateFormat: 'yy-mm-dd', //Unique format supported
         sort: identity,
         placesUrl: '/places',
         adjacencyListUrl: '/adjacency-list',
