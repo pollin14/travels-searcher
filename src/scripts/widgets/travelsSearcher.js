@@ -27,7 +27,8 @@
         sort: identity,
         placesUrl: '/places',
         adjacencyListUrl: '/adjacency-list',
-        amountResults: 5
+        amountResults: 5,
+        searchResultsUrl: '/'
     };
     var controls = {
         $origin: null,
@@ -50,7 +51,7 @@
 
             var $widgetForm         = $(this.element);
 
-            travelSearcherForm = new TravelSearcherForm();
+            travelSearcherForm = new TravelSearcherForm(this.options.searchResultsUrl);
 
             controls.$origin             = $(this.options.origin);
             controls.$destination        = $(this.options.destination);
@@ -79,7 +80,7 @@
 
             var originAutocompleteOptions = $.extend({}, autocompleteOptions, {
                 select: function (event, ui) {
-                    routesRepository.findByOrigin(ui.item.slug).done(function (destinations) {
+                    routesRepository.findByOrigin(ui.item).done(function (destinations) {
                         travelSearcherForm.setOrigin(ui.item);
                         controls.$destination.typeAheadByCategories('option', 'source', function (request, response) {
                             matcher(destinations, request, response);

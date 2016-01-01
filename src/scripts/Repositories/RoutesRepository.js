@@ -26,6 +26,10 @@
                 });
 
                 return that.placeRepository.findByIds(ids);
+            }, function (response) {
+                if (typeof console !== 'undefined') {
+                    console.log(response);
+                }
             });
     };
 

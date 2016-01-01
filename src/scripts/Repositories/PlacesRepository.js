@@ -35,9 +35,7 @@
      *     }
      * </code>
      */
-    PlacesRepository.prototype.findAll = function (enabledPagination) {
-
-        enabledPagination = typeof enabledPagination === 'boolean'? enabledPagination: true;
+    PlacesRepository.prototype.findAll = function () {
 
         return this.places;
     };
@@ -55,4 +53,4 @@
     };
 
     window.PlacesRepository = PlacesRepository;
-})();
+})(jQuery);

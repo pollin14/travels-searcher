@@ -1,8 +1,7 @@
 /* globals validationsTranslations */
 
-'use strict';
-
 (function ($) {
+    'use strict';
 
     var validations = {
         origin: {
@@ -80,7 +79,7 @@
      */
     var TravelSearcherForm = function (url) {
 
-        this.url = typeof url === 'undefined'? '/': url;
+        this.url = typeof url === 'undefined'? '/': url + '/';
 
         this.violations = {
             origin: [],
