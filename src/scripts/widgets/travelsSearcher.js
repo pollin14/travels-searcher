@@ -37,6 +37,8 @@
         $returnDate: null
     };
     var travelSearcherForm = null;
+    var that = null;
+    var sendingAttempts = 0;
 
     /**************************************************************************
      * travelsSearcher widget definition
@@ -45,12 +47,12 @@
     $.widget('clickbus.travelsSearcher', $.Widget, {
         options: defaultOptions,
         _create: function () {
-            var that                = this;
             var placesRepository    = new PlacesRepository(this.options.placesUrl);
             var routesRepository    = new RoutesRepository(placesRepository, this.options.adjacencyListUrl);
 
             var $widgetForm         = $(this.element);
 
+            that               = this;
             travelSearcherForm = new TravelSearcherForm(this.options.searchResultsUrl);
 
             controls.$origin             = $(this.options.origin);
@@ -124,21 +126,52 @@
             controls.$returnDate
                 .datepicker(returnDatePickerOptions);
 
+            var allControlsSelectors =
+                this.options.origin + ',' +
+                this.options.destination + ',' +
+                this.options.departureDate;
+
             $widgetForm.on('submit', this.submitHandler);
+            $widgetForm.on('focus', allControlsSelectors, function () {
+
+                if (sendingAttempts > 0) {
+                    travelSearcherForm.valid();
+                    that.showFormErrors();
+                }
+            });
         },
         submitHandler: function (event) {
             event.preventDefault();
 
+            sendingAttempts++;
+
             if (travelSearcherForm.isValid()) {
+                var controlsWithTooltip = [
+                    controls.$origin,
+                    controls.$destination,
+                    controls.$departureDate
+                ];
+
+                $.each(controlsWithTooltip, function (index, control) {
+                    control.tooltip('close');
+                });
+
                 return travelSearcherForm.submit();
             }
 
+            that.showFormErrors();
+        },
+        showFormErrors: function () {
             $.each(travelSearcherForm.violations, function (field, violations) {
+
+                var control = controls['$'+ field];
+
                 if (violations.length === 0) {
+                    control.tooltip('close');
                     return;
                 }
 
-                controls['$'+ field]
+                control
                     .tooltip('option', 'content', violations[0])
                     .tooltip('open');
             });

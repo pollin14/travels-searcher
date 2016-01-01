@@ -80,7 +80,6 @@
     var TravelSearcherForm = function (url) {
 
         this.url = typeof url === 'undefined'? '/': url + '/';
-
         this.violations = {
             origin: [],
             destination: [],
@@ -125,9 +124,20 @@
         window.location =  baseUrl + '?' + serialize(query);
     };
 
+    TravelSearcherForm.prototype.valid = function () {
+
+        this.isValid();
+    };
+
     TravelSearcherForm.prototype.isValid = function () {
 
         var valid = true;
+
+        this.violations = {
+            origin: [],
+            destination: [],
+            departureDate: []
+        };
 
         for (var validation in validations) {
             if (validations.hasOwnProperty(validation)) {
