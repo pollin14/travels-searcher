@@ -85,7 +85,7 @@
         filter: function(array, term, property) {
             property = typeof property === 'undefined'? label: property;
 
-            var matcher = new RegExp($.ui.autocomplete.escapeRegex(term), "i");
+            var matcher = new RegExp($.ui.autocomplete.escapeRegex(latinize(term)), "i");
             return $.grep(array, function(value){
                 if (value[property] !== null) {
                     return matcher.test(latinize(value[property]));
