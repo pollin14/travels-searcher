@@ -30,15 +30,6 @@
         amountResults: 5,
         searchResultsUrl: '/'
     };
-    var controls = {
-        $origin: null,
-        $destination: null,
-        $departureDate: null,
-        $returnDate: null
-    };
-    var travelSearcherForm = null;
-    var that = null;
-    var sendingAttempts = 0;
 
     /**************************************************************************
      * travelsSearcher widget definition
@@ -47,18 +38,22 @@
     $.widget('clickbus.travelsSearcher', $.Widget, {
         options: defaultOptions,
         _create: function () {
-            var placesRepository    = new PlacesRepository(this.options.placesUrl);
-            var routesRepository    = new RoutesRepository(placesRepository, this.options.adjacencyListUrl);
+            var that                        = this;
+            var $widgetForm             = $(this.element);
 
-            var $widgetForm         = $(this.element);
+            this.placesRepository       = new PlacesRepository(this.options.placesUrl);
+            this.routesRepository       = new RoutesRepository(this.placesRepository, this.options.adjacencyListUrl);
+            this.travelSearcherForm     = new TravelSearcherForm(this.options.searchResultsUrl);
 
-            that               = this;
-            travelSearcherForm = new TravelSearcherForm(this.options.searchResultsUrl);
+            this.controls                   = {};
+            this.controls.$origin           = $(this.options.origin);
+            this.controls.$destination      = $(this.options.destination);
+            this.controls.$departureDate    = $(this.options.departureDate);
+            this.controls.$returnDate       = $(this.options.returnDate);
 
-            controls.$origin             = $(this.options.origin);
-            controls.$destination        = $(this.options.destination);
-            controls.$departureDate      = $(this.options.departureDate);
-            controls.$returnDate         = $(this.options.returnDate);
+            this.sendingAttempts            = 0;
+
+            this.fillTravelSearcherForm();
 
             var matcher = function (places, request, response) {
                 var typeAhead       = $.clickbus.typeAheadByCategories;
@@ -74,7 +69,7 @@
 
             var autocompleteOptions = {
                 source: function (request, response) {
-                    matcher(placesRepository.findAll(), request, response);
+                    matcher(that.placesRepository.findAll(), request, response);
                 },
                 sort: this.options.sort,
                 resultsAmount: this.options.resultsAmount
@@ -82,48 +77,48 @@
 
             var originAutocompleteOptions = $.extend({}, autocompleteOptions, {
                 select: function (event, ui) {
-                    routesRepository.findByOrigin(ui.item).done(function (destinations) {
-                        travelSearcherForm.setOrigin(ui.item);
-                        controls.$destination.typeAheadByCategories('option', 'source', function (request, response) {
+                    that.routesRepository.findByOrigin(ui.item).done(function (destinations) {
+                        that.travelSearcherForm.setOrigin(ui.item);
+                        that.controls.$destination.typeAheadByCategories('option', 'source', function (request, response) {
                             matcher(destinations, request, response);
                         });
-                        controls.$origin.tooltip('close');
+                        that.controls.$origin.tooltip('close');
                     });
                 }
             });
 
             var destinationAutocompleteOptions = $.extend({}, autocompleteOptions, {
                 select: function (event, ui) {
-                    travelSearcherForm.setDestination(ui.item);
-                    controls.$destination.tooltip('close');
+                    that.travelSearcherForm.setDestination(ui.item);
+                    that.controls.$destination.tooltip('close');
                 }
             });
 
             var departureDatePickerOptions = $.extend({}, this.options.datepicker, {
                 minDate: today,
                 onSelect: function (date) {
-                    travelSearcherForm.setDepartureDate(date);
-                    controls.$returnDate.datepicker('option', 'minDate', date);
+                    that.travelSearcherForm.setDepartureDate(date);
+                    that.controls.$returnDate.datepicker('option', 'minDate', date);
                 }
             });
 
             var returnDatePickerOptions = $.extend({}, this.options.datepicker, {
                 onSelect: function (date) {
-                    travelSearcherForm.setReturnDate(date);
-                    controls.$departureDate.datepicker('option', 'maxDate', date);
+                    that.travelSearcherForm.setReturnDate(date);
+                    that.controls.$departureDate.datepicker('option', 'maxDate', date);
                 }
             });
 
-            controls.$origin
+            this.controls.$origin
                 .typeAheadByCategories(originAutocompleteOptions)
                 .tooltip(this.options.tooltips.origin);
-            controls.$destination
+            this.controls.$destination
                 .typeAheadByCategories(destinationAutocompleteOptions)
                 .tooltip(this.options.tooltips.destination);
-            controls.$departureDate
+            this.controls.$departureDate
                 .datepicker(departureDatePickerOptions)
                 .tooltip(this.options.tooltips.departureDate);
-            controls.$returnDate
+            this.controls.$returnDate
                 .datepicker(returnDatePickerOptions);
 
             var allControlsSelectors =
@@ -131,40 +126,45 @@
                 this.options.destination + ',' +
                 this.options.departureDate;
 
-            $widgetForm.on('submit', this.submitHandler);
-            $widgetForm.on('focus', allControlsSelectors, function () {
+            $widgetForm.on('submit', null, {that: this}, this.submitHandler);
+            $widgetForm.on('focus', allControlsSelectors, {that: this}, this.focusHandler);
+        },
+        focusHandler: function (event) {
+            var that = event.data.that;
 
-                if (sendingAttempts > 0) {
-                    travelSearcherForm.valid();
-                    that.showFormErrors();
-                }
-            });
+            if (that.sendingAttempts > 0) {
+                that.travelSearcherForm.valid();
+                that.showFormErrors();
+            }
+
         },
         submitHandler: function (event) {
             event.preventDefault();
 
-            sendingAttempts++;
+            var that = event.data.that;
+            that.sendingAttempts++;
 
-            if (travelSearcherForm.isValid()) {
+            if (that.travelSearcherForm.isValid()) {
                 var controlsWithTooltip = [
-                    controls.$origin,
-                    controls.$destination,
-                    controls.$departureDate
+                    that.controls.$origin,
+                    that.controls.$destination,
+                    that.controls.$departureDate
                 ];
 
                 $.each(controlsWithTooltip, function (index, control) {
                     control.tooltip('close');
                 });
 
-                return travelSearcherForm.submit();
+                return that.travelSearcherForm.submit();
             }
 
             that.showFormErrors();
         },
         showFormErrors: function () {
-            $.each(travelSearcherForm.violations, function (field, violations) {
+            var that = this;
+            $.each(that.travelSearcherForm.violations, function (field, violations) {
 
-                var control = controls['$'+ field];
+                var control = that.controls['$'+ field];
 
                 if (violations.length === 0) {
                     control.tooltip('close');
@@ -175,6 +175,33 @@
                     .tooltip('option', 'content', violations[0])
                     .tooltip('open');
             });
+        },
+        fillTravelSearcherForm: function () {
+
+            var origin = this.placesRepository.findOneByName(this.controls.$origin.val());
+            var destination = this.placesRepository.findOneByName(this.controls.$destination.val());
+            var departureDate = this.controls.$departureDate.val();
+            var returnDate = this.controls.$returnDate.val();
+
+            if (origin !== null) {
+                this.travelSearcherForm.setOrigin(origin);
+            } else {
+                this.controls.$origin.val('');
+            }
+
+            if (destination !== null) {
+                this.travelSearcherForm.setDestination(destination);
+            } else {
+                this.controls.$destination.val('');
+            }
+
+            if (departureDate) {
+                this.travelSearcherForm.setDepartureDate(departureDate);
+            }
+
+            if (returnDate) {
+                this.travelSearcherForm.setReturnDate(returnDate);
+            }
         }
     });
 })(jQuery);
