@@ -10,7 +10,8 @@
         returnDate: 'input.return-date',
         datepicker: {
             dateFormat: 'dd/mm/yy', //Only format supported,
-            numberOfMonths: 2
+            numberOfMonths: 2,
+            minDate: today
         },
         tooltips: {
             origin: {
@@ -95,7 +96,6 @@
             });
 
             var departureDatePickerOptions = $.extend({}, this.options.datepicker, {
-                minDate: today,
                 onSelect: function (date) {
                     that.travelSearcherForm.setDepartureDate(date);
                     that.controls.$returnDate.datepicker('option', 'minDate', date);
