@@ -93,3 +93,11 @@
     padding: 8px;
     border-bottom: 1px #F6F6F6 solid
 }
+
+.ui-menu .state, .ui-menu .city {
+    color: #B1B1B1;
+}
+
+.ui-menu .state {
+    text-transform: uppercase;
+}
