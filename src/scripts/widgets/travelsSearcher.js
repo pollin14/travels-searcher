@@ -76,22 +76,55 @@
                 resultsAmount: this.options.resultsAmount
             };
 
+            var originSelected = false;
+            var eraseDestination = function () {
+                that.travelSearcherForm.setOrigin({});
+                that.controls.$origin.val('');
+                that.controls.$destination.val('');
+            };
             var originAutocompleteOptions = $.extend({}, autocompleteOptions, {
                 select: function (event, ui) {
                     that.routesRepository.findByOrigin(ui.item).done(function (destinations) {
                         that.travelSearcherForm.setOrigin(ui.item);
+                        that.controls.$destination.val('');
                         that.controls.$destination.typeAheadByCategories('option', 'source', function (request, response) {
                             matcher(destinations, request, response);
                         });
                         that.controls.$origin.tooltip('close');
                     });
+                    originSelected = true;
+                    eraseDestination();
+                },
+                response: function () {
+                    originSelected = false;
+                },
+                change: function () {
+
+                    if (originSelected) {
+                        return;
+                    }
+                    eraseDestination();
                 }
             });
 
+            var destinationSelected = false;
             var destinationAutocompleteOptions = $.extend({}, autocompleteOptions, {
                 select: function (event, ui) {
                     that.travelSearcherForm.setDestination(ui.item);
                     that.controls.$destination.tooltip('close');
+                    destinationSelected = true;
+                },
+                response: function () {
+                    destinationSelected = false;
+                },
+                change: function() {
+
+                    if (destinationSelected) {
+                        return;
+                    }
+
+                    that.travelSearcherForm.setDestination({});
+                    that.controls.$destination.val('');
                 }
             });
 
