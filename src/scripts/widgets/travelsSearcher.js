@@ -155,6 +155,8 @@
                     control.tooltip('close');
                 });
 
+                $(this).trigger('clickbus.travels-searcher-submit');
+
                 return that.travelSearcherForm.submit();
             }
 
