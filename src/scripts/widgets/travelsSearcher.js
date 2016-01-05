@@ -150,9 +150,17 @@
                 .tooltip(this.options.tooltips.destination);
             this.controls.$departureDate
                 .datepicker(departureDatePickerOptions)
-                .tooltip(this.options.tooltips.departureDate);
+                .tooltip(this.options.tooltips.departureDate)
+                .change(function () {
+                    $(this).val('');
+                    that.travelSearcherForm.setDepartureDate('');
+                });
             this.controls.$returnDate
-                .datepicker(returnDatePickerOptions);
+                .datepicker(returnDatePickerOptions)
+                .change(function () {
+                    $(this).val('');
+                    that.travelSearcherForm.setReturnDate('');
+                });
 
             var allControlsSelectors =
                 this.options.origin + ',' +
