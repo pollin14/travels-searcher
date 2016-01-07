@@ -30,15 +30,12 @@
         _renderMenu: function (ul, items) {
             var that            = this;
             var sortedItems     = that.options.sort(items);
-            var cities          = sortedItems.filter(function (item) {
+            var cities = sortedItems.filter(function (item) {
                 return item.isGroup;
-            });
-            var terminals       = sortedItems.filter(function (item) {
+            }).splice(START_INDEX, that.options.resultsAmount);
+            var terminals = sortedItems.filter(function (item) {
                 return !item.isGroup;
-            });
-
-            cities.splice(START_INDEX, that.options.resultsAmount);
-            terminals.splice(START_INDEX, that.options.resultsAmount);
+            }).splice(START_INDEX, that.options.resultsAmount);
 
             if (cities.length > 0) {
                 this.renderCities(ul, cities);
