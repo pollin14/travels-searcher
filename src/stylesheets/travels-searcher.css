@@ -75,7 +75,8 @@
     background: #6993CF;
     color: #fff;
     padding: 8px;
-    font-weight: 700
+    font-weight: 400;
+    font-size: 1.0em;
 }
 
 .ui-menu-item {
