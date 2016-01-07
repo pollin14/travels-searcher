@@ -35,8 +35,13 @@
                 return !item.isCity;
             });
 
-            this.renderCities(ul, cities);
-            this.renderTerminals(ul, terminals);
+            if (cities.length > 0) {
+                this.renderCities(ul, cities);
+            }
+
+            if (terminals.length > 0) {
+                this.renderTerminals(ul, terminals);
+            }
         },
         _renderItem: function (ul, item) {
             return $('<li>')
