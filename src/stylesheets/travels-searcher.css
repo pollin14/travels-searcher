@@ -8,12 +8,12 @@
     padding: 0;
     opacity: .8;
     font-size: 11px;
-    line-height: 1.4
+    line-height: 1.4;
 }
 
 .ui-tooltip-content {
     position: relative;
-    padding: 8px
+    padding: 8px;
 }
 
 .ui-tooltip-content::after {
@@ -21,7 +21,7 @@
     position: absolute;
     border-style: solid;
     display: block;
-    width: 0
+    width: 0;
 }
 
 .right .ui-tooltip-content::after {
@@ -29,7 +29,7 @@
     left: -5px;
     border-color: transparent #000;
     border-width: 5px 5px 5px 0;
-    margin-top: -5px
+    margin-top: -5px;
 }
 
 .left .ui-tooltip-content::after {
@@ -37,7 +37,7 @@
     right: -5px;
     border-color: #000 transparent;
     border-width: 5px 0 5px 5px;
-    margin-top: -5px
+    margin-top: -5px;
 }
 
 .top .ui-tooltip-content::after {
@@ -53,22 +53,22 @@
     left: 72px;
     border-color: #000 transparent;
     border-width: 0 5px 5px;
-    margin-left: -5px
+    margin-left: -5px;
 }
 
 /******************************************************************************
 * Autocomplete
 ******************************************************************************/
 .ui-autocomplete {
-    border: thin solid #F6F6F6
+    border: thin solid #C6C6C6;
 }
 
 .ui-autocomplete.ui-widget-content .ui-state-focus {
     border: none;
     padding: 8px;
     background: #8C8C8C;
-    font-weight: 400;
-    color: #fff
+    color: #fff;
+    font-weight: bold;
 }
 
 .ui-autocomplete-category {
@@ -82,7 +82,7 @@
     background: #fff;
     padding: 8px;
     color: #282828;
-    font-size: 12px
+    font-size: 12px;
 }
 
 .ui-menu .ui-state-focus {
@@ -91,7 +91,8 @@
 
 .ui-menu .ui-menu-item {
     padding: 8px;
-    border-bottom: 1px #F6F6F6 solid
+    border-bottom: 1px #F6F6F6 solid;
+    font-weight: bold;
 }
 
 .ui-menu .state, .ui-menu .city {
