@@ -37,8 +37,8 @@
                 return !item.isGroup;
             });
 
-            cities.splice(START_INDEX, that.option.resultsAmount);
-            terminals.splice(START_INDEX, that.option.resultsAmount);
+            cities.splice(START_INDEX, that.options.resultsAmount);
+            terminals.splice(START_INDEX, that.options.resultsAmount);
 
             if (cities.length > 0) {
                 this.renderCities(ul, cities);
