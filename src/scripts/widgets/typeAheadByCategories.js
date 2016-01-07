@@ -1,6 +1,8 @@
 (function ($) {
     'use strict';
 
+    var START_INDEX = 0;
+
     var defaultTranslations = {
         cities: 'Cities (All the terminals)',
         terminals: 'Terminals'
@@ -29,11 +31,14 @@
             var that            = this;
             var sortedItems     = that.options.sort(items);
             var cities          = sortedItems.filter(function (item) {
-                return item.isCity;
+                return item.isGroup;
             });
             var terminals       = sortedItems.filter(function (item) {
-                return !item.isCity;
+                return !item.isGroup;
             });
+
+            cities.splice(START_INDEX, that.option.resultsAmount);
+            terminals.splice(START_INDEX, that.option.resultsAmount);
 
             if (cities.length > 0) {
                 this.renderCities(ul, cities);
@@ -87,10 +92,10 @@
     });
 
     $.extend($.clickbus.typeAheadByCategories, {
-        filter: function(array, term, property) {
-            property = typeof property === 'undefined'? label: property;
-
+        filter: function(array, term) {
+            var property = 'name';
             var matcher = new RegExp($.ui.autocomplete.escapeRegex(latinize(term)), "i");
+
             return $.grep(array, function(value){
                 if (value[property] !== null) {
                     return matcher.test(latinize(value[property]));
@@ -99,13 +104,8 @@
                 return matcher.test(value.value || value);
             });
         },
-        splice: function (matchPlaces, isCity, limit) {
-            var places      = matchPlaces.slice(0, limit);
-
-            return places.map(function (place) {
-                place.isCity = isCity;
-                return place;
-            });
+        splice: function (matchPlaces, limit) {
+             return matchPlaces.slice(0, limit);
         }
     });
 })(jQuery);

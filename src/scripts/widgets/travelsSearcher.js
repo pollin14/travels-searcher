@@ -58,14 +58,9 @@
 
             var matcher = function (places, request, response) {
                 var typeAhead       = $.clickbus.typeAheadByCategories;
+                var matchedPlaces = typeAhead.filter(places, request.term);
 
-                var matchCities     = typeAhead.filter(places, request.term, 'city');
-                var matchTerminal   = typeAhead.filter(places, request.term, 'terminal');
-                var cities          = typeAhead.splice(matchCities, true, that.options.amountResults);
-                var terminals       = typeAhead.splice(matchTerminal, false, that.options.amountResults);
-                var matchPlaces     = cities.concat(terminals);
-
-                response(matchPlaces);
+                response(matchedPlaces);
             };
 
             var autocompleteOptions = {
