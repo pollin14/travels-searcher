@@ -46,3 +46,4 @@ gulp.task('serve-dev', ['watch'], function () {
 gulp.task('build-dev', ['concat-scripts', 'compile-stylesheets']);
 gulp.task('build-dist', ['compile-scripts', 'compile-stylesheets']);
 gulp.task('build', ['build-dist']);
+gulp.task('default', ['build']);
