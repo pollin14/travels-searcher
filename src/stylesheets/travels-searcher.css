@@ -64,16 +64,17 @@
 }
 
 .ui-autocomplete.ui-widget-content .ui-state-focus {
-    border: none;
+    border: 0;
+    border-bottom: 1px solid transparent;
     padding: 8px;
-    background: #8C8C8C;
-    color: #fff;
+    background: #3568D9;
+    color: #FFFFFF;
     font-weight: bold;
 }
 
 .ui-autocomplete-category {
-    background: #6993CF;
-    color: #fff;
+    background: #8EA7D7;
+    color: #FFFFFF;
     padding: 8px;
     font-weight: 400;
     font-size: 1.0em;
@@ -97,9 +98,14 @@
 }
 
 .ui-menu .state, .ui-menu .city {
-    color: #B1B1B1;
+    color: #989798;
 }
 
 .ui-menu .state {
     text-transform: uppercase;
+}
+
+.ui-menu .ui-state-focus .state,
+.ui-menu .ui-state-focus .city {
+    color: #BFCEEF;
 }
