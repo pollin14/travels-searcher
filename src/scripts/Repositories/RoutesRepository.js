@@ -8,6 +8,7 @@
     var RoutesRepository = function (placeRepository, url) {
         this.url = url;
         this.placeRepository = placeRepository;
+        this.adjacencyList = null;
     };
 
     /**
@@ -21,6 +22,7 @@
         return $
             .getJSON(this.url, {placeId: origin.id})
             .then(function (adjacencyList) {
+                that.adjacencyList = adjacencyList;
                 var ids = adjacencyList.map(function (item) {
                     return item.arrival;
                 });
@@ -31,6 +33,10 @@
                     console.log(response);
                 }
             });
+    };
+
+    RoutesRepository.prototype.getAdjacencyListFromCache = function () {
+        return this.adjacencyList;
     };
 
     window.RoutesRepository = RoutesRepository;

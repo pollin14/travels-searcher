@@ -108,6 +108,10 @@
         data.returnDate = parseDate(value);
     };
 
+    TravelSearcherForm.prototype.getData = function () {
+        return data;
+    };
+
     TravelSearcherForm.prototype.submit = function () {
 
         var baseUrl = this.url + data.origin + '/' + data.destination;

@@ -33,6 +33,44 @@
     };
 
     /**************************************************************************
+     * Event Handlers
+     *************************************************************************/
+
+    var submitHandler = function (event) {
+        event.preventDefault();
+
+        var that = event.data.that;
+        that.sendingAttempts++;
+
+        if (that.travelSearcherForm.isValid()) {
+            var controlsWithTooltip = [
+                that.controls.$origin,
+                that.controls.$destination,
+                that.controls.$departureDate
+            ];
+
+            $.each(controlsWithTooltip, function (index, control) {
+                control.tooltip('close');
+            });
+
+            $(this).trigger('clickbus.travels-searcher-submit');
+
+            return that.travelSearcherForm.submit();
+        }
+
+        that.showFormErrors();
+    };
+
+    var focusHandler = function (event) {
+        var that = event.data.that;
+
+        if (that.sendingAttempts > 0) {
+            that.travelSearcherForm.valid();
+            that.showFormErrors();
+        }
+    };
+
+    /**************************************************************************
      * travelsSearcher widget definition
      *************************************************************************/
 
@@ -108,6 +146,23 @@
                     that.travelSearcherForm.setDestination(ui.item);
                     that.controls.$destination.tooltip('close');
                     destinationSelected = true;
+
+                    /**
+                     * We must change the origin place selected by the user with its place group equivalent.
+                     * All the next logic is some weird
+                     */
+                    var adjacencyList = that.routesRepository.getAdjacencyListFromCache();
+                    var realOriginPlace = adjacencyList.find(function (item) {
+                        return item.arrival=== ui.item.id;
+                    });
+
+                    if (typeof realOriginPlace === 'undefined') {
+                        return;
+                    }
+
+                    that.travelSearcherForm.getData().origin = realOriginPlace.departure_slug;
+                    that.travelSearcherForm.getData().isGroup = ui.item.isGroup? 0: 1;
+
                 },
                 response: function () {
                     destinationSelected = false;
@@ -162,41 +217,8 @@
                 this.options.destination + ',' +
                 this.options.departureDate;
 
-            $widgetForm.on('submit', null, {that: this}, this.submitHandler);
-            $widgetForm.on('focus', allControlsSelectors, {that: this}, this.focusHandler);
-        },
-        focusHandler: function (event) {
-            var that = event.data.that;
-
-            if (that.sendingAttempts > 0) {
-                that.travelSearcherForm.valid();
-                that.showFormErrors();
-            }
-
-        },
-        submitHandler: function (event) {
-            event.preventDefault();
-
-            var that = event.data.that;
-            that.sendingAttempts++;
-
-            if (that.travelSearcherForm.isValid()) {
-                var controlsWithTooltip = [
-                    that.controls.$origin,
-                    that.controls.$destination,
-                    that.controls.$departureDate
-                ];
-
-                $.each(controlsWithTooltip, function (index, control) {
-                    control.tooltip('close');
-                });
-
-                $(this).trigger('clickbus.travels-searcher-submit');
-
-                return that.travelSearcherForm.submit();
-            }
-
-            that.showFormErrors();
+            $widgetForm.on('submit', null, {that: this}, submitHandler);
+            $widgetForm.on('focus', allControlsSelectors, {that: this}, focusHandler);
         },
         showFormErrors: function () {
             var that = this;
