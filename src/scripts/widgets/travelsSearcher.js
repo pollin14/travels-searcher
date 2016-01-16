@@ -32,6 +32,10 @@
         searchResultsUrl: '/'
     };
 
+    var defaultTranslations = {
+        anyRoutFound: 'No hay ninguna ruta que parte de éste lugar'
+    };
+
     /**************************************************************************
      * Event Handlers
      *************************************************************************/
@@ -94,6 +98,12 @@
 
             this.fillTravelSearcherForm();
 
+            if (typeof travelsSearcherTranlations === 'undefined') {
+                this.translations = defaultTranslations;
+            } else {
+                this.translations = travelsSearcherTranlations;
+            }
+
             var matcher = function (places, request, response) {
                 var typeAhead       = $.clickbus.typeAheadByCategories;
                 var matchedPlaces = typeAhead.filter(places, request.term);
@@ -117,14 +127,22 @@
             };
             var originAutocompleteOptions = $.extend({}, autocompleteOptions, {
                 select: function (event, ui) {
-                    that.routesRepository.findByOrigin(ui.item).done(function (destinations) {
-                        that.travelSearcherForm.setOrigin(ui.item);
-                        that.controls.$destination.val('');
-                        that.controls.$destination.typeAheadByCategories('option', 'source', function (request, response) {
-                            matcher(destinations, request, response);
+                    that.controls.$origin.tooltip('close');
+
+                    that.routesRepository.findByOrigin(ui.item)
+                        .done(function (destinations) {
+                            that.travelSearcherForm.setOrigin(ui.item);
+                            that.controls.$destination.val('');
+                            that.controls.$destination.typeAheadByCategories('option', 'source', function (request, response) {
+                                matcher(destinations, request, response);
+                            });
+                        })
+                        .fail(function () {
+                            that.controls.$origin
+                                .tooltip('option', 'content', that.translations.anyRoutFound)
+                                .tooltip('open');
                         });
-                        that.controls.$origin.tooltip('close');
-                    });
+
                     originSelected = true;
                     eraseDestination();
                 },
@@ -142,6 +160,7 @@
 
             var destinationSelected = false;
             var destinationAutocompleteOptions = $.extend({}, autocompleteOptions, {
+                source: [],
                 select: function (event, ui) {
                     that.travelSearcherForm.setDestination(ui.item);
                     that.controls.$destination.tooltip('close');
@@ -157,8 +176,11 @@
                     var realOriginPlace = adjacencyList.find(function (item) {
                         return item.arrival === ui.item.id;
                     });
+                    var redirect =
+                        typeof realOriginPlace !== 'undefined' &&
+                        realOriginPlace.departure_slug !== that.travelSearcherForm.getData().origin;
 
-                    that.travelSearcherForm.setDoesRouteExist(typeof realOriginPlace !== 'undefined');
+                    that.travelSearcherForm.setRedirect(redirect);
                     that.travelSearcherForm.getData().origin = realOriginPlace.departure_slug;
 
                 },

@@ -35,7 +35,7 @@
         destination: '',
         departureDate: '',
         returnDate: '',
-        doesRouteExist: true
+        redirect: false
     };
 
     if (typeof validationsTranslations !== 'undefined') {
@@ -106,8 +106,8 @@
         data.returnDate = parseDate(value);
     };
 
-    TravelSearcherForm.prototype.setDoesRouteExist = function (value) {
-        data.setDoesRouteExist = value;
+    TravelSearcherForm.prototype.setRedirect = function (value) {
+        data.redirect = value;
     };
 
     TravelSearcherForm.prototype.getData = function () {
@@ -119,7 +119,7 @@
         var baseUrl = this.url + data.origin + '/' + data.destination;
 
         var query = {
-            isGroup: data.doesRouteExist? 0: 1,
+            isGroup: data.redirect? 1: 0,
             departureDate: data.departureDate
         };
 
