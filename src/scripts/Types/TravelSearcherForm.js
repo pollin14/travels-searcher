@@ -35,7 +35,7 @@
         destination: '',
         departureDate: '',
         returnDate: '',
-        isGroup: false
+        doesRouteExist: true
     };
 
     if (typeof validationsTranslations !== 'undefined') {
@@ -89,13 +89,11 @@
 
     TravelSearcherForm.prototype.setOrigin = function (value) {
         data.origin         = value.slug;
-        data.isGroup        = data.isGroup || value.isGroup;
         data.destination    = '';
     };
 
     TravelSearcherForm.prototype.setDestination = function (value) {
         data.destination    = value.slug;
-        data.isGroup        = data.isGroup || value.isGroup;
     };
 
     TravelSearcherForm.prototype.setDepartureDate = function (value) {
@@ -108,6 +106,10 @@
         data.returnDate = parseDate(value);
     };
 
+    TravelSearcherForm.prototype.setDoesRouteExist = function (value) {
+        data.setDoesRouteExist = value;
+    };
+
     TravelSearcherForm.prototype.getData = function () {
         return data;
     };
@@ -117,7 +119,7 @@
         var baseUrl = this.url + data.origin + '/' + data.destination;
 
         var query = {
-            isGroup: data.isGroup? 1: 0,
+            isGroup: data.doesRouteExist? 0: 1,
             departureDate: data.departureDate
         };
 

@@ -148,20 +148,18 @@
                     destinationSelected = true;
 
                     /**
-                     * We must change the origin place selected by the user with its place group equivalent.
+                     * We must change the origin place selected by the user with its place group equivalent if
+                     * the specific route does not exist.
+                     *
                      * All the next logic is some weird
                      */
                     var adjacencyList = that.routesRepository.getAdjacencyListFromCache();
                     var realOriginPlace = adjacencyList.find(function (item) {
-                        return item.arrival=== ui.item.id;
+                        return item.arrival === ui.item.id;
                     });
 
-                    if (typeof realOriginPlace === 'undefined') {
-                        return;
-                    }
-
+                    that.travelSearcherForm.setDoesRouteExist(typeof realOriginPlace !== 'undefined');
                     that.travelSearcherForm.getData().origin = realOriginPlace.departure_slug;
-                    that.travelSearcherForm.getData().isGroup = ui.item.isGroup? 0: 1;
 
                 },
                 response: function () {
@@ -242,6 +240,8 @@
             var destination = this.placesRepository.findOneByName(this.controls.$destination.val());
             var departureDate = this.controls.$departureDate.val();
             var returnDate = this.controls.$returnDate.val();
+
+            this.travelSearcherForm.getData().isGroup = this.controls.$returnDate.val();
 
             if (origin !== null) {
                 this.travelSearcherForm.setOrigin(origin);
