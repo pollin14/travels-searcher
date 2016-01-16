@@ -8,7 +8,7 @@
     var RoutesRepository = function (placeRepository, url) {
         this.url = url;
         this.placeRepository = placeRepository;
-        this.adjacencyList = null;
+        this.adjacencyList = [];
     };
 
     /**
