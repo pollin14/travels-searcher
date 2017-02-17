@@ -32,7 +32,7 @@ gulp.task('compile-scripts', function () {
 /**
  * server to development
  */
-gulp.task('serve-dev', ['watch'], function () {
+gulp.task('server', ['watch'], function () {
     gulp.src(['./', 'demo'])
         .pipe(webserver({
             livereload: true,

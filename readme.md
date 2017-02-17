@@ -1,15 +1,16 @@
 ## Travels Searcher
 
-A widget to do searches of travels built above jQuery UI's autocomplete and datepicker and it uses design pattern of jQuery UI widget.
+A widget searches travels from a place to other. It is built jQuery UI's autocomplete and datepicker. It uses the design pattern of jQuery UI widget.
 
 ## How does it work?
 
-1.- The widget start with a list of places.
-2.- Searches places using only name property (the label) of the place.
-3.- Groups the places by cities (a place is city if is a group) and terminals (a place is terminal if is not a group)
+1. The widget start with a list of places.
+2. It searches places using only the name property (the label) of the place.
+3. It groups the places by cities (a place is city if it is a group) and terminals (a place is terminal if it is not a group)
 
 ### Presentation formats:
-Cities category shows the result in the format: city + state abbreviation.
+
+Cities category shows the results in the format: city + state abbreviation.
 Terminals category shows the results in the format: terminal + city + state abbreviation.
 
 ## Requirements
@@ -49,7 +50,7 @@ The command generates in the directory *dist* a stylesheet and javascript ready 
 The source code of widget is inside of the directory *src*. You can run the command
 
 ```bash
-gulp serve-dev
+gulp server
 ```
 
 to create a web server that serve the demo application to test the widget. The server includes *livereload* to ease the development.
